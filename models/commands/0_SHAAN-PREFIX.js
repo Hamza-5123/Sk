@@ -2,7 +2,7 @@ module.exports.config = {
   name: "prefix",
   version: "2.0.0",
   hasPermssion: 0,
-  credits: "ABHI BABU",
+  credits: "SHAAN BABU",
   description: "Show bot prefix with date & time",
   commandCategory: "system",
   usages: "prefix",
@@ -21,11 +21,11 @@ module.exports.handleEvent = async ({ event, api }) => {
     global.data.threadData.get(parseInt(threadID)) || {};
   const prefix = threadSetting.PREFIX || global.config.PREFIX;
 
-  // 🇮🇳 INDIA DATE & TIME
+  // 🇵🇰 PAKISTAN DATE & TIME
   const now = new Date();
 
   const time = now.toLocaleTimeString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
@@ -33,14 +33,14 @@ module.exports.handleEvent = async ({ event, api }) => {
   });
 
   const date = now.toLocaleDateString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     day: "2-digit",
     month: "long",
     year: "numeric"
   });
 
   const day = now.toLocaleDateString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     weekday: "long"
   });
 
@@ -55,7 +55,7 @@ module.exports.handleEvent = async ({ event, api }) => {
 ✰ DAY ➪ ${day}
 
 ༺══─────────══༻
-MADE BY ❤️‍🔥 ARIF BABU
+MADE BY ❤️‍🔥 SHAAN-KHAN-K 
 `;
 
   return api.sendMessage(msg, threadID, messageID);
@@ -66,11 +66,11 @@ module.exports.run = async ({ event, api }) => {
     global.data.threadData.get(parseInt(event.threadID)) || {};
   const prefix = threadSetting.PREFIX || global.config.PREFIX;
 
-  // 🇮🇳 INDIA DATE & TIME
+  //🇵🇰 PAKISTAN DATE & TIME
   const now = new Date();
 
   const time = now.toLocaleTimeString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
@@ -78,14 +78,14 @@ module.exports.run = async ({ event, api }) => {
   });
 
   const date = now.toLocaleDateString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     day: "2-digit",
     month: "long",
     year: "numeric"
   });
 
   const day = now.toLocaleDateString("en-IN", {
-    timeZone: "Asia/Kolkata",
+    timeZone: "Asia/Karachi",
     weekday: "long"
   });
 
@@ -100,7 +100,7 @@ module.exports.run = async ({ event, api }) => {
 ✰ DAY ➪ ${day}
 
 ༺══─────────══༻
-MADE BY ❤️‍🔥 ARIF BABU
+MADE BY ❤️‍🔥 SHAAN-KHAN-K 
 `;
 
   return api.sendMessage(msg, event.threadID);
