@@ -2,10 +2,10 @@ const axios = require("axios");
 
 module.exports.config = {
   name: "hercai",
-  version: "5.0.0",
+  version: "6.0.0",
   hasPermission: 0,
   credits: "Shaan Khan", 
-  description: "Stable AI with Free API - No Key Needed",
+  description: "Pollinations Stable No-Key Fix",
   commandCategory: "AI",
   usePrefix: false,
   usages: "[Reply to bot]",
@@ -31,7 +31,7 @@ module.exports.handleEvent = async function ({ api, event }) {
   if (!userMemory[senderID]) userMemory[senderID] = [];
   if (!lastScript[senderID]) lastScript[senderID] = "Roman Urdu";
 
-  // Script Logic
+  // Script detection
   if (userQuery.includes("pashto") || userQuery.includes("پښتو")) {
     lastScript[senderID] = "NATIVE PASHTO SCRIPT (پښتو)";
   } else if (userQuery.includes("urdu") && (userQuery.includes("script") || userQuery.includes("mein"))) {
@@ -42,18 +42,20 @@ module.exports.handleEvent = async function ({ api, event }) {
     lastScript[senderID] = "Roman Urdu";
   }
 
-  const conversationHistory = userMemory[senderID].join("\n");
+  const history = userMemory[senderID].join("\n");
+  
+  // Strict System Prompt
+  const sys = `You are an AI by Shaan Khan. Respond ONLY in ${lastScript[senderID]}. Use emojis. Context: ${history}`;
 
-  const systemPrompt = `You are an AI by Shaan Khan. Strictly respond in ${lastScript[senderID]} and use emojis. Context: ${conversationHistory}`;
-
-  // FREE STABLE API (No key required)
-  const apiURL = `https://sandipapi.onrender.com/gpt?prompt=${encodeURIComponent(body)}&system=${encodeURIComponent(systemPrompt)}`;
+  // Sabse Stable URL Structure (GET Method)
+  // Pollinations ab 'system' ko query parameter mein support karta hai
+  const apiURL = `https://text.pollinations.ai/${encodeURIComponent(body)}?model=mistral&system=${encodeURIComponent(sys)}`;
 
   try {
-    const res = await axios.get(apiURL);
-    let botReply = res.data.answer; // Sandip API returns 'answer'
+    const response = await axios.get(apiURL);
+    let botReply = response.data;
 
-    if (!botReply) throw new Error("Empty Response");
+    if (!botReply || botReply === "") throw new Error("API Khali Hai");
 
     userMemory[senderID].push(`U: ${body}`, `B: ${botReply}`);
     if (userMemory[senderID].length > 6) userMemory[senderID].splice(0, 2);
@@ -62,13 +64,16 @@ module.exports.handleEvent = async function ({ api, event }) {
     return api.sendMessage(botReply, threadID, messageID);
 
   } catch (error) {
-    // Agar Sandip API fail ho toh backup free API
+    console.error("Hercai Error:", error.message);
+    api.setMessageReaction("❌", messageID, (err) => {}, true);
+    
+    // Last Hope: Very Simple Backup URL
     try {
-      const backupRes = await axios.get(`https://api.shinn07.repl.co/ai?query=${encodeURIComponent(body)}`);
-      return api.sendMessage(backupRes.data.answer + " ✨", threadID, messageID);
+      const backupURL = `https://text.pollinations.ai/${encodeURIComponent(body)}?model=search`;
+      const res = await axios.get(backupURL);
+      return api.sendMessage(res.data + " ✨", threadID, messageID);
     } catch (e) {
-      api.setMessageReaction("❌", messageID, (err) => {}, true);
-      return api.sendMessage("❌ Server down hai, thodi der baad koshish karein. ✨", threadID, messageID);
+      return api.sendMessage("❌ Connection ka bohot zyada masla hai. Apka internet ya hosting check karein. ✨", threadID, messageID);
     }
   }
 };
@@ -79,13 +84,13 @@ module.exports.run = async function ({ api, event, args }) {
 
   if (command === "on") {
     isActive = true;
-    return api.sendMessage("✅ AI Online!", threadID, messageID);
+    return api.sendMessage("✅ AI Online! Bolna shuru karein. 🎭", threadID, messageID);
   } else if (command === "off") {
     isActive = false;
     return api.sendMessage("⚠️ AI Offline.", threadID, messageID);
   } else if (command === "clear") {
     userMemory = {};
     lastScript = {};
-    return api.sendMessage("🧹 Memory Cleared!", threadID, messageID);
+    return api.sendMessage("🧹 Sab saaf! Reset ho gaya. ✨", threadID, messageID);
   }
 };
