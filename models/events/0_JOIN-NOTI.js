@@ -33,7 +33,7 @@ module.exports.run = async function({ api, event }) {
                 const fs = require("fs");
                 return api.sendMessage("Assalamu Alaikum Everyone🥀🥀", event.threadID, () => api.sendMessage({body:`🌺Shaan🦋🌺 CONNECTED«
 
-Bot Made By SHAAN KHAN K☘️
+Bot Made By HAMZA KHAN K☘️
 <------------------------------>  
 BOT CONNECTED SUCCESFUL !!! 
 
@@ -45,11 +45,11 @@ USE HELP TO SEE COMMAND
 <<<<<------------------------------>>>>>
 AND FOR ANY REPORT OR CONTACT BOT DEVELOPER
 
-OWNER: 𝐒𝐇𝐀𝐀𝐍
+OWNER: 𝐇𝐀𝐌𝐙𝐀
 
-♻️Facebook: 
+♻️Facebook: https://www.facebook.com/share/18Gov7cNP7/
 
-https://www.facebook.com/profile.php?id=100016828397863&mibextid=ZbWKwL
+https://
 
 Youtube Site : N/A
 
@@ -59,7 +59,7 @@ https://www.instagram.com/shankhank345?igsh=MXVneXZ6bzR4bHhvcg==￼
 
 ☣️Email: shankhank345@gmail.com
 
-⚠️Wp: +92 3368783346 `, attachment: fs.createReadStream(__dirname + "/cache/lv_7413647234832682256_20250105005634.mp4")} ,threadID));
+⚠️Wp: +92 3206700336 `, attachment: fs.createReadStream(__dirname + "/cache/lv_7413647234832682256_20250105005634.mp4")} ,threadID));
         }
         else {
                 try {
