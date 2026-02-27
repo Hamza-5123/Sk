@@ -31,7 +31,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
        return api.sendMessage("hai tamnna hamey tujhe Kam wali bay banaya🤣🤣", threadID);
      };
     if ((event.body.toLowerCase() == "🥰") || (event.body.toLowerCase() == "😱")) {
-       return api.sendMessage("is nazar se serf  𝐍𝐀𝐈𝐑𝐀  dekh sak thi hai Mujhe💞", threadID);
+       return api.sendMessage("is nazar se serf 𝐒𝐊 𝐏𝐀𝐑𝐕𝐄𝐍  dekh sak thi hai Mujhe💞", threadID);
      };
     if ((event.body.toLowerCase() == "i hate you") || (event.body.toLowerCase() == "hate you")) {
        return api.sendMessage("Kya itna bura hoon main Ke AP Mujhe I hate you bol rahe ho ja main tujh se bat Nahi Kar thi😪😪😥😢", threadID);
