@@ -31,7 +31,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
        return api.sendMessage("hai tamnna hamey tujhe Kam wali bay banaya🤣🤣", threadID);
      };
     if ((event.body.toLowerCase() == "🥰") || (event.body.toLowerCase() == "😱")) {
-       return api.sendMessage("is nazar se serf 𝐒𝐊 𝐏𝐀𝐑𝐕𝐄𝐍  dekh sak thi hai Mujhe💞", threadID);
+       return api.sendMessage("is nazar se serf 𝐉𝐎𝐇𝐓𝐀 𝐋𝐎𝐆  dekh sak thi hai Mujhe💞", threadID);
      };
     if ((event.body.toLowerCase() == "i hate you") || (event.body.toLowerCase() == "hate you")) {
        return api.sendMessage("Kya itna bura hoon main Ke AP Mujhe I hate you bol rahe ho ja main tujh se bat Nahi Kar thi😪😪😥😢", threadID);
@@ -273,7 +273,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
     if ((event.body.toLowerCase() == "💚")) {return api.sendMessage("___)Ankho__🌿__m__🍒__pyar__💦dil___❣️__me__💥___khumar___🌹___pyar____🌿___toh____😴___nhi___💥___kar_🌿_liya___🌿___mujhse____🌿🌹❣️__________________?🥰🥰😍 ", threadID);
      };
 
-    if ((event.body.toLowerCase() == "🙄")) {return api.sendMessage(" Shaan Boss busy hai mujse bat karo🙄🙄 ", threadID);
+    if ((event.body.toLowerCase() == "🙄")) {return api.sendMessage(" Hamza Boss busy hai mujse bat karo🙄🙄 ", threadID);
      };
     if ((event.body.toLowerCase() == "🥳")) {return api.sendMessage("OO tery kis ki birthday hai  🎂🎂", threadID);
      };
@@ -426,7 +426,7 @@ module.exports.handleEvent = async function({ api, event, args, Threads, Users }
   if ((event.body.toLowerCase() == "🤩")) {return api.sendMessage("suna tha star ✨ ⭐ ✨ aasman me hote hai par teri to ankho par ⭐ hai ✨✨⭐😜😜😂 ", threadID);
     };
 
-  if ((event.body.toLowerCase() == "😘")) {return api.sendMessage("hmara modii bhut hrami hi kiss wiss ni not allowed bolta hi😹🤣😂 ", threadID);
+  if ((event.body.toLowerCase() == "😘")) {return api.sendMessage("mojhy kiss krna kalya *i love you likho😹🤣😂 ", threadID);
     };
 
   if ((event.body.toLowerCase() == "😛")) {return api.sendMessage("jibh kyu latk gyii..🤭 aajao panii pii lo🫗🍷😜😹🤣😂 ", threadID);
